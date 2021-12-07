@@ -50,13 +50,15 @@ const theme = createTheme({
     overrides: {
         MuiButtonBase: {
             root: {
-                justifyContent: 'flex-start',
+                justifyContent: 'center',
+                alignItems: 'center'
             },
         },
         MuiButton: {
             root: {
-                textTransform: undefined,
-                padding: '12px 16px',
+                textTransform: 'uppercase',
+                padding: '1rem',
+                borderRadius: '0.5em'
             },
             startIcon: {
                 marginRight: 8,
@@ -87,6 +89,7 @@ const App = () => {
         <ConnectionProvider endpoint={endpoint}>
           <WalletProvider wallets={wallets} autoConnect={true}>
             <WalletDialogProvider>
+              <div className="top"></div>
               <Home
                 candyMachineId={candyMachineId}
                 config={config}
@@ -95,6 +98,7 @@ const App = () => {
                 treasury={treasury}
                 txTimeout={txTimeout}
               />
+              <div className="bottom"></div>
             </WalletDialogProvider>
           </WalletProvider>
         </ConnectionProvider>

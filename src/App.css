@@ -1,3 +1,33 @@
 .App {
   text-align: center;
 }
+
+html, body, #root {
+  height: 100%;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  background-image: url('bg_1.png');
+  background-size: cover;
+  background-position: 30em;
+}
+
+.top, .bottom  {
+  flex-basis: 20%;
+}
+
+.main {
+  flex-basis: 60%;
+}
+
+.top {
+  background: rgb(255,255,255);
+  background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.4) 50%);
+}
+
+.bottom {
+  background: rgb(255,255,255);
+  background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.4) 50%);
+}

@@ -1,3 +1,5 @@
+import "./Home.css";
+
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Countdown from "react-countdown";
@@ -21,11 +23,41 @@ import {
 
 const ConnectButton = styled(WalletDialogButton)``;
 
+const GreetingSection = styled.div`
+  .title,
+  .greeting,
+  .icons {
+    text-align: center;
+  }
+
+  .title {
+    font-size: clamp(3rem, 10vh, 7rem);
+  }
+
+  .title, .greeting {
+    text-shadow: 0.1em 0.1em 0.2em black;
+  }
+
+  .greeting, .icons {
+    font-size: clamp(1rem, 3vh, 4rem);
+  }
+
+  margin-bottom: 2em;
+`;
+
 const CounterText = styled.span``; // add your styles here
 
-const MintContainer = styled.div``; // add your styles here
+const MintContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`; // add your styles here
 
-const MintButton = styled(Button)``; // add your styles here
+const MintButton = styled(Button)`
+  margin-left: auto;
+  margin-right: auto;
+`; // add your styles here
 
 export interface HomeProps {
   candyMachineId: anchor.web3.PublicKey;
@@ -166,7 +198,7 @@ const Home = (props: HomeProps) => {
   ]);
 
   return (
-    <main>
+    <main className="main">
       {wallet && (
         <p>Wallet {shortenAddress(wallet.publicKey.toBase58() || "")}</p>
       )}
@@ -180,6 +212,11 @@ const Home = (props: HomeProps) => {
       {wallet && <p>Remaining: {itemsRemaining}</p>}
 
       <MintContainer>
+        <GreetingSection>
+          <h1 className='title'>Run Run Chicken</h1>
+          <p className='greeting'>Welcome to our Minting page!</p>
+          <p className='icons'>🐔🦊🐔🦊</p>
+        </GreetingSection>
         {!wallet ? (
           <ConnectButton>Connect Wallet</ConnectButton>
         ) : (
